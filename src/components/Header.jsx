@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import app from "../lib/firebase";
 const navLinks = [
-  { href: "#home", label: "Home" },
+  { href: "/", label: "Home" },
   { href: "/dashboard/book/booking-form", label: "Book Now" },
   { href: "/dashboard/book/booking-list", label: "View Appointment" },
 ];
