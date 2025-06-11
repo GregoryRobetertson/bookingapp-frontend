@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import axios from "axios";
+import axios from "@/lib/axios";
 import { useCurrentUser } from "@/context/AuthContext";
 export default function BookingForm() {
   const [formData, setFormData] = useState({
@@ -16,7 +16,6 @@ export default function BookingForm() {
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -98,6 +97,7 @@ export default function BookingForm() {
         </div>
         <button
           type="submit"
+          disabled={loading}
           className=" bg-blue-800 text-white px-4 py-2 rounded-3xl cursor-pointer hover:bg-blue-400"
         >
           Submit

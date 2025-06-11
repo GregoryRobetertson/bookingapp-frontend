@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "@/lib/axios";
 import { useCurrentUser } from "@/context/AuthContext";
 
 export default function BookingList() {
