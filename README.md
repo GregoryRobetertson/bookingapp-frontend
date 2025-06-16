@@ -53,3 +53,20 @@ Here's where to check in your src/server/controllers/bookingController.js:
 
 createBooking: Use req.user.\_id (or req.user.id) for the user field.
 getMyBookings: Query by req.user.\_id for the user field.
+
+# Fixing CORS Error for Localhost and Netlify Frontend
+
+## 🐛 Problem
+
+When making requests from the React frontend running on `http://localhost:3000` (during development) or from the deployed frontend on Netlify (`https://bookiteasy.netlify.app`), the browser blocked the requests due to CORS (Cross-Origin Resource Sharing) policy.
+
+### CORS Error Message:
+
+Access to fetch at 'https://bookingapp-backend-67cv.onrender.com/' from origin 'http://localhost:3000' has been blocked by CORS policy:
+No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+fix: update CORS configuration to support multiple allowed origins
+
+- Replaced hardcoded origin with dynamic list using `allowedOrigins` array
+- Allowed requests from http://localhost:3000 and https://bookiteasy.netlify.app
+- Simplified CORS middleware to improve readability and prevent origin mismatch issues
